@@ -1,0 +1,6 @@
+'use client';
+import {Select} from '@base-ui/react/select';
+import {Check,ChevronDown,Globe2} from 'lucide-react';
+export default function ModernSelect({value,onChange,options,label,theme='light',icon=false}){
+ return <Select.Root value={value} onValueChange={onChange} modal={false}><Select.Trigger className={'modern-select-trigger select-'+theme} aria-label={label}>{icon&&<Globe2 size={17} strokeWidth={1.5} className="select-leading-icon"/>}<Select.Value className="modern-select-value"/><Select.Icon className="modern-select-chevron"><ChevronDown size={16}/></Select.Icon></Select.Trigger><Select.Portal><Select.Positioner sideOffset={8} align="start" alignItemWithTrigger={false} className="modern-select-positioner"><Select.Popup className={'modern-select-popup select-'+theme}><div className="modern-select-heading">{label}</div><Select.List className="modern-select-list">{options.map(option=><Select.Item value={option} key={option} className="modern-select-option"><Select.ItemText>{option}</Select.ItemText><Select.ItemIndicator className="modern-select-check"><Check size={14} strokeWidth={2}/></Select.ItemIndicator></Select.Item>)}</Select.List></Select.Popup></Select.Positioner></Select.Portal></Select.Root>
+}
